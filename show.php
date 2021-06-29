@@ -5,9 +5,20 @@
     }
     require 'connection.php';
 
-    $sql = "SELECT * FROM students_information";
-
+    $sql = "SELECT * FROM `students_information`";
     $result = $con->query($sql);
+
+    $user_id = $_SESSION['id'];
+    $user = "SELECT * FROM `login` WHERE id = '$user_id'";
+    $user_data = $con->query($user);
+
+    if($user_data->num_rows > 0){
+        while($data = $user_data->fetch_object()) {
+            $us_id = $data->id;
+            $user_name = $data->name;
+            $user_email = $data->email;
+        }
+    }
 
 
 ?>
@@ -53,10 +64,11 @@
                     <th>Sl</th>
                     <th>Roll</th>
                     <th>Name</th>
+                    <th>Author</th>
                     <!-- <th>Phone</th> -->
                     <!-- <th>Email</th> -->
                     <!-- <th>Gender</th> -->
-                    <th>Department</th>
+                    <!-- <th>Department</th> -->
                     <!-- <th>District</th> -->
                     <th>Created_At</th>
                     <th class="text-center">Action</th>
@@ -72,10 +84,11 @@
                                     <td><?php echo $row->id;?></td>
                                     <td><?php echo $row->roll;?></td>
                                     <td><?php echo $row->name;?></td>
+                                    <td><?php echo $row->created_by;?></td>
                                     <!-- <td><?php echo $row->phone;?></td>
                                     <td><?php echo $row->email;?></td>
                                     <td><?php echo $row->gender;?></td> -->
-                                    <td><?php echo $row->department;?></td>
+                                    <!-- <td><?php echo $row->department;?></td> -->
                                     <!-- <td><?php echo $row->district;?></td> -->
                                     <td><?php echo date('M-d-Y h:i A',strtotime($row->created_at));?></td>
                                     <td  class="text-center">

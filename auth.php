@@ -16,10 +16,12 @@
         if($result->num_rows > 0) {
             while ($row = $result->fetch_object()) {
                $id = $row->id;
+            //    $name = $row->name;
                $password = $row->password;
             }
             if(md5($pass) === $password) {
                 $_SESSION['id'] = $id;
+                // $_SESSION['name'] = $name;
                 header('location:show.php');
             }
             else{

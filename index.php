@@ -101,6 +101,7 @@
             </div>
 
             <div class="form-row mt-2">
+                <input type="hidden" name="created_by" value="<?php echo $_SESSION['id'];?>">
                 <input type="submit" name="submit" value="Submit" class="mr-2">
                 <input type="reset" value="Reset">
             </div>
