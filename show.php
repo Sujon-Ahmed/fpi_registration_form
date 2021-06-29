@@ -5,7 +5,8 @@
     }
     require 'connection.php';
 
-    $sql = "SELECT * FROM `students_information`";
+    //$sql = "SELECT * FROM `students_information`";
+    $sql = "SELECT students_information.*,login.name AS log_name FROM students_information INNER JOIN login ON students_information.created_by = login.id";
     $result = $con->query($sql);
 
     $user_id = $_SESSION['id'];
@@ -84,7 +85,8 @@
                                     <td><?php echo $row->id;?></td>
                                     <td><?php echo $row->roll;?></td>
                                     <td><?php echo $row->name;?></td>
-                                    <td><?php echo $row->created_by;?></td>
+                                    <!-- <td><?php echo $row->created_by;?></td> -->
+                                    <td><?php echo $row->log_name;?></td>
                                     <!-- <td><?php echo $row->phone;?></td>
                                     <td><?php echo $row->email;?></td>
                                     <td><?php echo $row->gender;?></td> -->
