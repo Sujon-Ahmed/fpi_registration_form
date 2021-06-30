@@ -141,7 +141,7 @@
             <hr>
             <div class="card shadow-sm" style="width: 100%;">
                 <div class="card-header d-flex justify-content-between align-items-center"><strong>Roll : <span><?php echo $roll;?></span></strong>
-                    <button type="button" class="btn btn-primary btn-sm">ID <span class="badge badge-light"><?php echo $id;?></span>
+                    <button type="button" class="btn btn-secondary btn-sm">ID <span class="badge badge-light"><?php echo $id;?></span>
                     </button>
                 </div>
                 <ul class="list-group list-group-flush">
